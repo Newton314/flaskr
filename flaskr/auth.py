@@ -24,7 +24,7 @@ def register():
         elif db.execute(
             'SELECT id FROM user WHERE username = ?', (username,)
         ).fetchone() is not None:
-            error = f"User {username} is already registerd."
+            error = f"User {username} is already registered."
         
         if error is None:
             db.execute(
@@ -50,9 +50,9 @@ def login():
         ).fetchone()
 
         if user is None:
-            error = "Incorrect username"
+            error = "Incorrect username."
         elif not check_password_hash(user['password'], password):
-            error = "Incorrect password"
+            error = "Incorrect password."
         
         if error is None:
             session.clear()
